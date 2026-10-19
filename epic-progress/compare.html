@@ -21,52 +21,38 @@
   </header>
   <main>
     <h1>Epic Progress compared</h1>
-    <p class="lead">How Epic Progress compares with ESU Lite and with what Jira Cloud already does, so you can pick what fits. I make Epic Progress, so I've stuck to facts you can check.</p>
+    <p class="lead">Epic Progress next to ESU Lite and the epic tools built into Jira Cloud.</p>
+    <p>I make Epic Progress. Claims about the other two link to their sources at the bottom of the page.</p>
 
     <h2>At a glance</h2>
     <div class="table-wrap">
     <table>
       <tr><th></th><th>Epic Progress</th><th>ESU Lite</th><th>Jira built-in</th></tr>
-      <tr><td>Where you see it</td><td>A dashboard gadget listing many epics</td><td>A summary panel on each epic</td><td>The project timeline, plus Epic report and Epic burndown on boards</td></tr>
+      <tr><td>Where you see it</td><td>A dashboard gadget listing many epics, with a summary line across them</td><td>A summary panel on each epic</td><td>The project timeline, plus Epic report and Epic burndown on boards</td></tr>
       <tr><td>Dashboard gadget</td><td>Yes</td><td>No (in the paid ESU Standard edition)</td><td>No gadget for epics. Filter and statistics gadgets can count child issues.</td></tr>
       <tr><td>Which epics</td><td>Open epics in a project, or any JQL query, up to 50</td><td>The epic you're viewing</td><td>Timeline: one project. Plans (Premium and Enterprise) span projects.</td></tr>
       <tr><td>Progress by issue count</td><td>Yes, done and in progress</td><td>Yes, completed items and status categories</td><td>Timeline progress bar on each epic</td></tr>
-      <tr><td>Progress by story points</td><td>Yes</td><td>No (in ESU Standard)</td><td>Epic report and Epic burndown, company-managed Scrum boards only</td></tr>
-      <tr><td>Time tracking</td><td>Time logged against original estimate, including sub-tasks</td><td>Sums of original estimate, remaining estimate and time spent</td><td>Epic report and burndown can use time if it is the board's estimation statistic</td></tr>
-      <tr><td>Finish forecast</td><td>Likely date and 85% date for each epic, from weekly throughput</td><td>Not listed</td><td>Epic burndown predicts the finishing sprint from average velocity (company-managed Scrum boards)</td></tr>
-      <tr><td>Risk flags</td><td>At risk, overdue, stalled, scope growing</td><td>Not listed</td><td>None. JQL filters can find overdue epics.</td></tr>
+      <tr><td>Progress by story points</td><td>Yes. Shows how many child issues have no estimate.</td><td>No (in ESU Standard)</td><td>Epic report and Epic burndown, company-managed Scrum boards only</td></tr>
+      <tr><td>Time tracking</td><td>Time logged against original estimate, including sub-tasks. Shows how many child issues have no estimate.</td><td>Sums of original estimate, remaining estimate and time spent</td><td>Epic report and burndown can use time if it is the board's estimation statistic</td></tr>
+      <tr><td>Finish forecast</td><td>Likely date and 85% date for each epic, from issues finished per week. Hover to see the numbers used.</td><td>Not listed</td><td>Epic burndown predicts the finishing sprint from average velocity (company-managed Scrum boards)</td></tr>
+      <tr><td>Risk flags</td><td>At risk, overdue, stalled, scope growing. Uses Due date, or Target end from Jira Plans if there's no due date.</td><td>Not listed</td><td>None. JQL filters can find overdue epics.</td></tr>
+      <tr><td>Open work</td><td>Lists an epic's open child issues with status and assignee, up to 15, with a link to the rest in Jira</td><td>Can send the epic's work items to the work item navigator or bulk editor</td><td>The epic's own page lists its child work items. The timeline shows them under each epic.</td></tr>
       <tr><td>Project types</td><td>Company-managed and team-managed</td><td>Both (team-managed for epics only)</td><td>Timeline: both. Epic report and burndown: company-managed Scrum.</td></tr>
       <tr><td>Hosting</td><td>Jira Cloud. Built on Forge; data never leaves Atlassian.</td><td>Jira Cloud and Data Center. Listing shows the Runs on Atlassian badge.</td><td>Part of Jira</td></tr>
       <tr><td>Price</td><td>Free for up to 10 users, then per user</td><td>Free for up to 10 users, then per user (since October 2026)</td><td>Included. Plans need Premium or Enterprise.</td></tr>
     </table>
     </div>
 
-    <h2>When each one fits</h2>
-    <h3>Use what Jira already has if…</h3>
-    <ul>
-      <li>You look at one project's epics at a time. The <strong>timeline</strong> shows a progress bar on every epic once Progress is turned on in View settings.</li>
-      <li>Your team runs Scrum on a company-managed board and estimates consistently. <strong>Epic burndown</strong> already forecasts the sprint an epic will finish in.</li>
-      <li>You're on Jira Premium. <strong>Plans</strong> covers cross-project roadmaps, capacity and release estimates.</li>
-    </ul>
+    <h2>Which to use</h2>
+    <p><strong>Jira's own tools</strong> are enough if you look at one project at a time. Turn on Progress in the timeline's View settings and each epic gets a bar. If your team runs Scrum on a company-managed board and estimates most of its work, Epic burndown already predicts the sprint an epic will finish in. On Premium, Plans covers roadmaps across projects.</p>
+    <p><strong>ESU Lite</strong> puts time totals (original, remaining and spent) on the epic itself. It also runs on Data Center. Its paid Standard edition adds a dashboard gadget, story points, a worksheet for editing values, and time budgets.</p>
+    <p><strong>Epic Progress</strong> is for a dashboard or wallboard that shows many epics at once, chosen by project or by JQL across projects. It can measure by story points or time on any board, including Kanban boards and team-managed projects, where Jira's epic reports aren't available. Each epic also gets a forecast finish date and a flag when, for example, the forecast lands after the due date or nothing has been finished in two weeks.</p>
 
-    <h3>Choose ESU Lite if…</h3>
-    <ul>
-      <li>You want time totals (original, remaining and spent) on the epic itself, where people already look.</li>
-      <li>You're on Data Center as well as Cloud.</li>
-      <li>You may later want ESU Standard's extras, such as editing values in a worksheet, time budgets or containers.</li>
-    </ul>
-
-    <h3>Choose Epic Progress if…</h3>
-    <ul>
-      <li>You want many epics on one dashboard or wallboard, picked by project or JQL across projects.</li>
-      <li>You estimate in story points, or work in Kanban, or use team-managed projects, where Jira's epic reports don't apply.</li>
-      <li>You want a finish date with a confidence level, and a nudge when an epic is late, stuck or growing.</li>
-    </ul>
-
-    <h2>Epic Progress limits, plainly</h2>
+    <h2>Epic Progress limits</h2>
     <ul>
       <li>It's a dashboard gadget only. It adds nothing to the epic's own page.</li>
       <li>It reads Jira and never changes it, so there's no editing or bulk actions.</li>
+      <li>Only the first 15 open issues are listed under each epic. A link opens a Jira search for the rest.</li>
       <li>Up to 50 epics and 3,000 child issues per gadget.</li>
       <li>Forecasts count finished issues, not points or hours, and need two weeks of history and three finished issues. See <a href="./#forecasts">how forecasts work</a>.</li>
       <li>Time is measured against the original estimate. Remaining estimate isn't shown.</li>
@@ -79,7 +65,7 @@
       <li>Jira: <a href="https://support.atlassian.com/jira-software-cloud/docs/enable-and-disable-the-progress-monitor-in-your-project/">timeline progress</a>, <a href="https://support.atlassian.com/jira-software-cloud/docs/view-and-understand-the-epic-report/">Epic report</a>, <a href="https://support.atlassian.com/jira-software-cloud/docs/view-and-understand-the-epic-burndown-report/">Epic burndown</a>, <a href="https://support.atlassian.com/jira-software-cloud/docs/what-is-advanced-roadmaps/">Plans</a> and <a href="https://support.atlassian.com/jira-cloud-administration/docs/use-dashboard-gadgets/">dashboard gadgets</a>.</li>
       <li>Epic Progress: <a href="./">this site's documentation</a>.</li>
     </ul>
-    <p class="updated">Checked 19 October 2026. Other apps change. If something here is out of date, <a href="../support.html">tell me</a> and I'll fix it.</p>
+    <p class="updated">Checked 19 October 2026. If something here is out of date, <a href="../support.html">let me know</a> and I'll correct it.</p>
   </main>
   <footer>Made by Harsh Kamdar · <a href="../support.html">Get help</a></footer>
 </body>

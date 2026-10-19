@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Epic Progress</title>
-  <meta name="description" content="How to use Epic Progress, a Jira Cloud dashboard gadget for epic roll-ups, completion forecasts and risk flags.">
+  <meta name="description" content="How to use Epic Progress, a Jira Cloud dashboard gadget that shows progress, open work and a forecast finish date for each epic.">
   <link rel="icon" href="../assets/epic-progress.svg">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
@@ -21,8 +21,8 @@
   </header>
   <main>
     <h1>Epic Progress</h1>
-    <p class="lead">See how far along every epic is, when it will likely finish, and which ones need attention, on any Jira Cloud dashboard.</p>
-    <p>Weighing your options? See <a href="compare.html">how Epic Progress compares</a> with ESU Lite and Jira's built-in timeline and epic reports.</p>
+    <p class="lead">A Jira Cloud dashboard gadget. It lists the epics in a project or a JQL query, shows how much of each is done, and estimates when each will finish.</p>
+    <p>Comparing options? This <a href="compare.html">comparison with ESU Lite and Jira's own reports</a> lists what each one does.</p>
 
     <h2>Add it to a dashboard</h2>
     <ol>
@@ -43,19 +43,41 @@
       <tr><td>Show completion forecasts</td><td>Show the forecast line under each epic.</td></tr>
     </table>
 
+    <h2 id="summary">Summary line</h2>
+    <p>When the gadget shows two or more epics, a line at the top adds them up, for example <em>62% done · 5 epics · 1 at risk · 1 overdue</em>. The percentage uses the measure you chose in the settings. Each flag appears with the number of epics that have it, and flags no epic has are left out.</p>
+
+    <h2 id="whats-left">What's left</h2>
+    <p>Each epic with unfinished work has a <strong>What's left (N)</strong> link, where N is the number of open child issues. Select it to list them under the epic:</p>
+    <ul>
+      <li>In-progress issues come first, then to-do issues. Within each group the order is Jira's rank.</li>
+      <li>Each row shows the status, the issue key, the summary, and the assignee or <em>Unassigned</em>. Select the key to open the issue.</li>
+      <li>Only the first 15 open issues are listed. If there are more, a <strong>N more open in Jira</strong> link opens a Jira search for the rest.</li>
+    </ul>
+
+    <h2 id="estimates">Unestimated issues</h2>
+    <p>When you measure by story points or time, an issue with no estimate can't count toward the bar, so the bar can look further along than the work is. The gadget says so next to the totals, for example <em>13 of 42 pts · 3 not estimated</em>.</p>
+    <ul>
+      <li>A story point estimate of 0 counts as estimated.</li>
+      <li>If nothing in the epic is estimated, the count is left out, because the line already reads <em>No estimates</em>.</li>
+    </ul>
+
+    <h2 id="dates">Due dates and Target end</h2>
+    <p>The gadget uses the epic's <strong>Due date</strong>. If an epic has no due date, it uses the <strong>Target end</strong> field from Jira Plans instead and labels it <em>Target Nov 20</em> rather than <em>Due Nov 20</em>. The at-risk and overdue flags use whichever date is shown.</p>
+
     <h2 id="forecasts">Forecasts</h2>
-    <p>Each epic shows a line such as <em>Likely done Nov 14 · 85% sure by Nov 27</em>. The forecast runs 1,000 simulations based on how many of the epic's issues were finished each week, so it reflects how the team actually works rather than estimates.</p>
+    <p>Each epic shows a line such as <em>Likely done Nov 14 · 85% sure by Nov 27</em>. The gadget looks at how many of the epic's issues were finished in each recent week, then runs 1,000 simulations of the remaining work at those weekly rates. Estimates aren't used.</p>
+    <p>Hover over the forecast line to see what it's based on, for example: <em>Based on 11 issues finished in the last 6 weeks (about 1.8 a week), with 6 left. Likely is the middle of 1,000 simulated futures; 85% sure means 85 in 100 finish by then.</em></p>
     <ul>
       <li>Only weeks since work on the epic began are used, up to the last eight weeks.</li>
-      <li>A forecast appears after two weeks of history and at least three finished issues. Until then the gadget says so instead of guessing.</li>
+      <li>Forecasts need two weeks of history and at least three finished issues. Until then the gadget says so instead of guessing.</li>
       <li>Forecasts count issues, whichever measure you show.</li>
     </ul>
 
     <h2 id="risk-flags">Risk flags</h2>
     <table>
       <tr><th>Flag</th><th>Meaning</th></tr>
-      <tr><td>At risk</td><td>The cautious (85%) forecast lands after the epic's due date.</td></tr>
-      <tr><td>Overdue</td><td>The due date has passed and work remains.</td></tr>
+      <tr><td>At risk</td><td>The cautious (85%) forecast lands after the epic's due date or target end.</td></tr>
+      <tr><td>Overdue</td><td>The due date or target end has passed and work remains.</td></tr>
       <tr><td>Stalled</td><td>Nothing in the epic has been finished in two weeks.</td></tr>
       <tr><td>Scope growing</td><td>More issues were added than finished in the last two weeks.</td></tr>
     </table>
@@ -64,12 +86,14 @@
     <ul>
       <li>Works in company-managed and team-managed projects. Child issues are found through the Parent field.</li>
       <li>Story points are read from either "Story Points" or "Story point estimate", whichever your site uses.</li>
+      <li>Time is measured against the original estimate. Remaining estimate isn't shown.</li>
       <li>Everyone sees only epics and issues they already have permission to view.</li>
       <li>Up to 3,000 child issues are counted per gadget. A note appears if that limit is reached.</li>
+      <li>The gadget only reads Jira. It never changes issues.</li>
     </ul>
 
     <h2>Pricing</h2>
-    <p>Billed by Atlassian through the Marketplace. Free trial available; see the Marketplace listing for current prices.</p>
+    <p>Free for up to 10 users. Above that it is priced per user and billed by Atlassian through the Marketplace. See the Marketplace listing for current prices.</p>
 
     <h2>Your data</h2>
     <p>Epic Progress only reads Jira data to draw the gadget. It stores nothing of its own beyond the gadget settings Jira keeps for every dashboard, and no data leaves Atlassian. See the <a href="../privacy.html">privacy policy</a>.</p>
