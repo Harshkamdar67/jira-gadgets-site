@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Release Progress: release progress bars and finish forecasts on Jira dashboards</title>
+  <meta name="description" content="How to use Release Progress, a Jira Cloud dashboard gadget that shows progress, open work and a forecast finish date for each release (fix version).">
+  <link rel="canonical" href="https://harshkamdar67.github.io/jira-gadgets-site/release-progress/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Release Progress: release progress bars and finish forecasts on Jira dashboards">
+  <meta property="og:description" content="How to use Release Progress, a Jira Cloud dashboard gadget that shows progress, open work and a forecast finish date for each release (fix version).">
+  <meta property="og:url" content="https://harshkamdar67.github.io/jira-gadgets-site/release-progress/">
+  <link rel="icon" href="../assets/release-progress.svg">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="../">Jira Dashboard Gadgets</a>
+    <nav>
+      <a href="../dashboard-notes/">Dashboard Notes</a>
+      <a href="../epic-progress/">Epic Progress</a>
+      <a href="./">Release Progress</a>
+      <a href="../support.html">Support</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Release Progress</h1>
+    <p class="lead">A Jira Cloud dashboard gadget. It lists the releases (fix versions) in a project, shows how much of each is done, and estimates whether each will be ready by its release date.</p>
+    <p>Release Progress is not on the Atlassian Marketplace yet. This page describes how it works so you can judge it before it is listed.</p>
+
+    <h2>Add it to a dashboard</h2>
+    <ol>
+      <li>Open a dashboard and select <strong>Edit</strong>.</li>
+      <li>Select <strong>Add gadget</strong>, search for <strong>Release Progress</strong>, then select <strong>Add</strong>.</li>
+      <li>Pick a project, choose which versions to show and how to measure progress, then select <strong>Save</strong>.</li>
+    </ol>
+    <p>To change the settings later, edit the dashboard, open the gadget's <strong>⋯</strong> menu and select <strong>Configure</strong>.</p>
+
+    <h2>Settings</h2>
+    <table>
+      <tr><th>Setting</th><th>What it does</th></tr>
+      <tr><td>Project</td><td>The project whose versions to show. Company-managed and team-managed projects both work.</td></tr>
+      <tr><td>Which versions</td><td><strong>All unreleased versions</strong>, which picks up new versions as they are created, or <strong>Choose versions</strong> to tick specific ones. Archived versions are never shown.</td></tr>
+      <tr><td>Measure progress by</td><td><strong>Issues</strong> (done of total), <strong>Story points</strong> (points done of points estimated) or <strong>Time</strong> (hours logged of hours estimated, including sub-tasks).</td></tr>
+      <tr><td>Sort</td><td>Release date (versions without one go last), least complete first, most work remaining, or the order on Jira's Releases page.</td></tr>
+      <tr><td>Show up to</td><td>1 to 30 versions.</td></tr>
+      <tr><td>Show completion forecasts</td><td>Show the forecast line under each version.</td></tr>
+    </table>
+
+    <h2 id="summary">Summary line</h2>
+    <p>When the gadget shows two or more versions, a line at the top adds them up, for example <em>43% done · 4 releases · 1 overdue</em>. The percentage uses the measure you chose in the settings. Each flag appears with the number of versions that have it, and flags no version has are left out.</p>
+
+    <h2 id="whats-left">What's left</h2>
+    <p>Each version with unfinished work has a <strong>What's left (N)</strong> link, where N is the number of open issues in it. Select it to list them under the version:</p>
+    <ul>
+      <li>In-progress issues come first, then to-do issues. Within each group the order is Jira's rank.</li>
+      <li>Each row shows the status, the issue key, the summary, and the assignee or <em>Unassigned</em>. Select the key to open the issue.</li>
+      <li>Only the first 15 open issues are listed. If there are more, a <strong>N more open in Jira</strong> link opens a Jira search for the rest.</li>
+    </ul>
+    <p>Select a version's name to open it in Jira. In company-managed projects that is the version's release page. In team-managed projects without the Releases feature, Jira shows a search for the version's issues instead.</p>
+
+    <h2 id="estimates">Unestimated issues</h2>
+    <p>When you measure by story points or time, an issue with no estimate can't count toward the bar, so the bar can look further along than the work is. The gadget says so next to the totals, for example <em>13 of 42 pts · 3 not estimated</em>.</p>
+    <ul>
+      <li>A story point estimate of 0 counts as estimated.</li>
+      <li>If nothing in the version is estimated, the count is left out, because the line already reads <em>No estimates</em>.</li>
+    </ul>
+
+    <h2 id="dates">Release dates</h2>
+    <p>The gadget uses the version's <strong>Release date</strong> and shows it as, for example, <em>Release Oct 29</em>. It turns amber when the date is a week or less away and red once it has passed. A version without a release date says <em>No release date</em>, gets a forecast, and is never flagged at risk or overdue.</p>
+    <p>Once a version is released, <strong>All unreleased versions</strong> drops it. A version you ticked under <strong>Choose versions</strong> stays, with a <strong>Released</strong> tag and no flags or forecast, until you untick it. Released versions can't be newly ticked.</p>
+
+    <h2 id="forecasts">Forecasts</h2>
+    <p>Each unreleased version shows a line such as <em>Likely done Nov 14 · 85% sure by Nov 27</em>. The gadget looks at how many of the version's issues were finished in each recent week, then runs 1,000 simulations of the remaining work at those weekly rates. Estimates aren't used.</p>
+    <p>Hover over the forecast line to see what it's based on, for example: <em>Based on 11 issues finished in the last 6 weeks (about 1.8 a week), with 6 left. Likely is the middle of 1,000 simulated futures; 85% sure means 85 in 100 finish by then.</em></p>
+    <ul>
+      <li>History starts when the first issue was given the version, not when the issues were created. A version filled with old backlog issues last week has one week of history, not two months of empty weeks. The gadget reads this from each issue's Fix Version history.</li>
+      <li>Only up to the last eight weeks are used.</li>
+      <li>Forecasts need two weeks of history and at least three finished issues. Until then the gadget says so instead of guessing.</li>
+      <li>Forecasts count issues, whichever measure you show.</li>
+    </ul>
+
+    <h2 id="risk-flags">Risk flags</h2>
+    <table>
+      <tr><th>Flag</th><th>Meaning</th></tr>
+      <tr><td>At risk</td><td>The cautious (85%) forecast lands after the release date.</td></tr>
+      <tr><td>Overdue</td><td>The release date has passed, the version isn't released, and work remains.</td></tr>
+      <tr><td>Stalled</td><td>Nothing in the version has been finished in two weeks.</td></tr>
+      <tr><td>Scope growing</td><td>More issues were added to the version than finished in the last two weeks.</td></tr>
+    </table>
+    <p>"Added" means given this fix version, so an old issue moved into the release last week counts as added last week. Select a flag to see the numbers behind it. For example:</p>
+    <ul>
+      <li><strong>At risk:</strong> The 85% forecast is Nov 19, 26 days after the release date (Oct 24). The team has been finishing about 1.8 issues a week, and 9 issues are left.</li>
+      <li><strong>Overdue:</strong> The release date (Oct 17) passed 2 days ago, and 6 issues are still open.</li>
+      <li><strong>Stalled:</strong> No issue in this release has been finished in the last two weeks. The last one was finished on Sep 30, 19 days ago.</li>
+      <li><strong>Scope growing:</strong> In the last two weeks, 5 issues were added and 2 finished, so the open work grew by 3.</li>
+    </ul>
+    <p>An at-risk version also gets a suggestion, for example: <em>To finish by Oct 24 with 85% confidence at this pace, move about 4 of the 9 open issues out of the release, or move the release date to Nov 19.</em> If even one remaining issue can't be finished in time at the current pace, it says so instead. The suggestion uses the same simulation as the forecast, counts issues rather than points, and assumes the team keeps its recent pace.</p>
+
+    <h2>Good to know</h2>
+    <ul>
+      <li>Issues are found with the Fix Version field. Affects Version is not used.</li>
+      <li>Sub-tasks are left out of the counts, because their time is already included in their parent's time. Sub-tasks with their own fix version therefore don't add to the issue count.</li>
+      <li>An issue fixed in two versions counts toward both.</li>
+      <li>Story points are read from either "Story Points" or "Story point estimate", whichever your site uses.</li>
+      <li>Time is measured against the original estimate. Remaining estimate isn't shown.</li>
+      <li>Everyone sees only versions and issues they already have permission to view.</li>
+      <li>Up to 3,000 issues are counted per gadget. A note appears if that limit is reached.</li>
+      <li>If Jira doesn't return Fix Version history, forecasts and the scope flag fall back to issue creation dates. The gadget still loads.</li>
+      <li>The gadget only reads Jira. It never changes issues or versions.</li>
+    </ul>
+
+    <h2>Pricing</h2>
+    <p>Planned: free for up to 10 users. Above that it will be priced per user and billed by Atlassian through the Marketplace. Prices will be on the Marketplace listing once it is published.</p>
+
+    <h2>Your data</h2>
+    <p>Release Progress only reads Jira data to draw the gadget. It stores nothing of its own beyond the gadget settings Jira keeps for every dashboard, and no data leaves Atlassian. See the <a href="../privacy.html">privacy policy</a>.</p>
+  </main>
+  <footer>Made by Harsh Kamdar · <a href="../support.html">Get help</a></footer>
+</body>
+</html>
