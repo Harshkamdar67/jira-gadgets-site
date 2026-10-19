@@ -45,3 +45,5 @@ th, td { border: 1px solid var(--line); padding: 6px 10px; text-align: left; ver
 th { background: var(--panel); }
 footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 32px; color: var(--muted); font-size: 14px; }
 .updated { color: var(--muted); font-size: 14px; }
+.table-wrap { overflow-x: auto; }
+.table-wrap table { min-width: 560px; }
