@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to show epic progress on a Jira Cloud dashboard</title>
+  <meta name="description" content="Four ways to see epic progress in Jira Cloud: the timeline, the Epic report, built-in dashboard gadgets, and apps that show many epics in one gadget.">
+  <link rel="canonical" href="https://harshkamdar67.github.io/jira-gadgets-site/guides/epic-progress-on-a-jira-dashboard.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How to show epic progress on a Jira Cloud dashboard">
+  <meta property="og:description" content="Four ways to see epic progress in Jira Cloud: the timeline, the Epic report, built-in dashboard gadgets, and apps that show many epics in one gadget.">
+  <meta property="og:url" content="https://harshkamdar67.github.io/jira-gadgets-site/guides/epic-progress-on-a-jira-dashboard.html">
+  <meta property="og:image" content="https://harshkamdar67.github.io/jira-gadgets-site/assets/epic-progress-share.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/epic-progress.svg">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="../">Jira Dashboard Gadgets</a>
+    <nav>
+      <a href="../dashboard-notes/">Dashboard Notes</a>
+      <a href="../epic-progress/">Epic Progress</a>
+      <a href="../support.html">Support</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+    </nav>
+  </header>
+  <main>
+    <h1>How to show epic progress on a Jira Cloud dashboard</h1>
+    <p class="updated">Last checked 19 October 2026</p>
+    <p>Jira Cloud has a few built-in ways to see how far along an epic is. Which one fits depends on whether you want one epic or many, and whether you count issues or story points. I make Epic Progress, one of the options below, so the built-in ones come first.</p>
+
+    <h2>1. The timeline, for one project</h2>
+    <p>Open the project's <strong>Timeline</strong>, open <strong>View settings</strong> and turn on <strong>Progress</strong>. Each epic gets a bar showing done, in progress and to do, counted by issues. This is the quickest option if your team already uses the timeline. It is not on a dashboard and covers one project at a time.</p>
+
+    <h2>2. The Epic report, for story points on a Scrum board</h2>
+    <p>On a company-managed Scrum board, open <strong>Reports</strong> and choose <strong>Epic report</strong>. It shows completed and remaining story points for one epic, and the <strong>Epic burndown</strong> report predicts the sprint it will finish in from your average velocity. These reports are not available for Kanban boards or team-managed projects, and they show one epic at a time.</p>
+
+    <h2>3. Built-in gadgets, for one epic on a dashboard</h2>
+    <p>Save a filter for one epic's child issues, for example <code>parent = WEB-1</code>. Then add a <strong>Pie Chart</strong> or <strong>Issue Statistics</strong> gadget to your dashboard, using that filter and grouped by <strong>Status</strong>. Add a <strong>Filter Results</strong> gadget with the same filter to list the open issues. This works on any board type, but each epic needs its own filter and gadgets, and the counts are issues rather than story points.</p>
+
+    <h2>4. Many epics in one dashboard gadget</h2>
+    <p>If you want every epic in a project, or epics across projects chosen by JQL, in one place on a dashboard, you need an app. <a href="../epic-progress/">Epic Progress</a> is one: it draws a bar per epic by issues, story points or time, lists each epic's open issues, and estimates a finish date from how fast the team has been finishing work. Its <a href="../epic-progress/compare.html">comparison page</a> sets it against ESU Lite and the built-in options above, including what it does not do. It is free for teams of up to 10 users.</p>
+
+    <h2>Which to pick</h2>
+    <ul>
+      <li>One project, issue counts, and you use the timeline: the timeline.</li>
+      <li>Scrum on a company-managed board, story points, one epic at a time: the Epic report.</li>
+      <li>A single important epic on a dashboard: the built-in gadgets with a saved filter.</li>
+      <li>A dashboard or wallboard covering many epics, any board type, or a forecast finish date: an app such as Epic Progress.</li>
+    </ul>
+  </main>
+  <footer>Made by Harsh Kamdar · <a href="../support.html">Get help</a></footer>
+</body>
+</html>
