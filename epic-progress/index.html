@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Epic Progress</title>
+  <meta name="description" content="How to use Epic Progress, a Jira Cloud dashboard gadget for epic roll-ups, completion forecasts and risk flags.">
+  <link rel="icon" href="../assets/epic-progress.svg">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="../">Jira Dashboard Gadgets</a>
+    <nav>
+      <a href="../dashboard-notes/">Dashboard Notes</a>
+      <a href="./">Epic Progress</a>
+      <a href="../support.html">Support</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Epic Progress</h1>
+    <p class="lead">See how far along every epic is, when it will likely finish, and which ones need attention, on any Jira Cloud dashboard.</p>
+
+    <h2>Add it to a dashboard</h2>
+    <ol>
+      <li>Open a dashboard and select <strong>Edit</strong>.</li>
+      <li>Select <strong>Add gadget</strong>, search for <strong>Epic Progress</strong>, then select <strong>Add</strong>.</li>
+      <li>Choose which epics to show and how to measure progress, then select <strong>Save</strong>.</li>
+    </ol>
+    <p>To change the settings later, edit the dashboard, open the gadget's <strong>⋯</strong> menu and select <strong>Configure</strong>.</p>
+
+    <h2>Settings</h2>
+    <table>
+      <tr><th>Setting</th><th>What it does</th></tr>
+      <tr><td>Which epics</td><td>All open epics in a project, or epics returned by your own JQL query. JQL is checked when you save, and Jira's error is shown if it can't be used.</td></tr>
+      <tr><td>Measure progress by</td><td><strong>Issues</strong> (done of total), <strong>Story points</strong> (points done of points estimated) or <strong>Time</strong> (hours logged of hours estimated, including sub-tasks).</td></tr>
+      <tr><td>Sort</td><td>Least complete first, most work remaining, due date, or backlog order.</td></tr>
+      <tr><td>Show up to</td><td>1 to 50 epics.</td></tr>
+      <tr><td>Include completed epics</td><td>Also show epics whose status is done.</td></tr>
+      <tr><td>Show completion forecasts</td><td>Show the forecast line under each epic.</td></tr>
+    </table>
+
+    <h2>Forecasts</h2>
+    <p>Each epic shows a line such as <em>Likely done Nov 14 · 85% sure by Nov 27</em>. The forecast runs 1,000 simulations based on how many of the epic's issues were finished each week, so it reflects how the team actually works rather than estimates.</p>
+    <ul>
+      <li>Only weeks since work on the epic began are used, up to the last eight weeks.</li>
+      <li>A forecast appears after two weeks of history and at least three finished issues. Until then the gadget says so instead of guessing.</li>
+      <li>Forecasts count issues, whichever measure you show.</li>
+    </ul>
+
+    <h2>Risk flags</h2>
+    <table>
+      <tr><th>Flag</th><th>Meaning</th></tr>
+      <tr><td>At risk</td><td>The cautious (85%) forecast lands after the epic's due date.</td></tr>
+      <tr><td>Overdue</td><td>The due date has passed and work remains.</td></tr>
+      <tr><td>Stalled</td><td>Nothing in the epic has been finished in two weeks.</td></tr>
+      <tr><td>Scope growing</td><td>More issues were added than finished in the last two weeks.</td></tr>
+    </table>
+
+    <h2>Good to know</h2>
+    <ul>
+      <li>Works in company-managed and team-managed projects. Child issues are found through the Parent field.</li>
+      <li>Story points are read from either "Story Points" or "Story point estimate", whichever your site uses.</li>
+      <li>Everyone sees only epics and issues they already have permission to view.</li>
+      <li>Up to 3,000 child issues are counted per gadget. A note appears if that limit is reached.</li>
+    </ul>
+
+    <h2>Pricing</h2>
+    <p>Billed by Atlassian through the Marketplace. Free trial available; see the Marketplace listing for current prices.</p>
+
+    <h2>Your data</h2>
+    <p>Epic Progress only reads Jira data to draw the gadget. It stores nothing of its own beyond the gadget settings Jira keeps for every dashboard, and no data leaves Atlassian. See the <a href="../privacy.html">privacy policy</a>.</p>
+  </main>
+  <footer>Made by Harsh Kamdar · <a href="../support.html">Get help</a></footer>
+</body>
+</html>
