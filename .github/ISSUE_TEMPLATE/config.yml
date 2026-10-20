@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Read the guides first
+    url: https://apps.harshkamdar.com/
+    about: Setup, settings, forecasts and risk flags are explained for each app.
+  - name: Report a security problem privately
+    url: https://apps.harshkamdar.com/security.html
+    about: Please don't post security problems in a public issue.
+  - name: Ask privately by email
+    url: mailto:support@harshkamdar.com
+    about: For anything you'd rather not post publicly.

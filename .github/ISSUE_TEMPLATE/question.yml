@@ -1,0 +1,21 @@
+name: Question or idea
+description: Ask how something works, or suggest an improvement.
+body:
+  - type: dropdown
+    id: app
+    attributes:
+      label: Which app?
+      options:
+        - Epic Progress
+        - Release Progress
+        - Dashboard Notes
+        - More than one
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question or idea
+      description: What are you trying to do? The more concrete, the better.
+    validations:
+      required: true
