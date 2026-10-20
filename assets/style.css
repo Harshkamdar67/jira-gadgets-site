@@ -47,3 +47,9 @@ footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 3
 .updated { color: var(--muted); font-size: 14px; }
 .table-wrap { overflow-x: auto; }
 .table-wrap table { min-width: 560px; }
+
+/* "Get it on the Atlassian Marketplace" link, added to a product page once its listing is approved. */
+.get { display: inline-block; margin: 4px 0 8px; padding: 8px 14px; border-radius: 4px; background: var(--accent); color: #fff; font-weight: 600; text-decoration: none; }
+.get:hover { filter: brightness(1.08); }
+@media (prefers-color-scheme: dark) { .get { color: #1d2125; } }
+.card .get-small { font-size: 14px; font-weight: 600; }
